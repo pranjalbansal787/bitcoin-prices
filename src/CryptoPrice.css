@@ -1,0 +1,38 @@
+.crypto-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 170px;
+  background-color: antiquewhite;
+}
+
+.crypto-card {
+  width: 250px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.crypto-card:hover {
+  transform: translateY(-5px);
+}
+
+.crypto-card h2 {
+  margin-bottom: 15px;
+  color: #343a40;
+}
+
+.crypto-card p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.loading-text {
+  font-size: 18px;
+  color: #6c757d;
+}
