@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './CryptoPrice.css'
+import './CryptoPrice.css';
 
 const CryptoPrices = () => {
   const [prices, setPrices] = useState({});
@@ -18,7 +18,11 @@ const CryptoPrices = () => {
     };
 
     fetchData();
-  }, []);
+    
+    const intervalId = setInterval(fetchData, 10000); // Fetch data every second
+
+    return () => clearInterval(intervalId); // Cleanup interval on unmount
+  }, []); // Include setPrices as a dependency
 
   return (
     <div className="crypto-container">
@@ -28,15 +32,15 @@ const CryptoPrices = () => {
         <>
           <div className="crypto-card">
             <h2>Bitcoin (USD)</h2>
-            <p>{prices?.USD?.rate}</p>
-          </div>
-          <div className="crypto-card">
-            <h2>Bitcoin (GBP)</h2>
-            <p>{prices?.GBP?.rate}</p>
+            <p>{prices.USD.rate}</p>
           </div>
           <div className="crypto-card">
             <h2>Bitcoin (Euro)</h2>
-            <p>{prices?.EUR?.rate}</p>
+            <p>{prices.EUR.rate}</p>
+          </div>
+          <div className="crypto-card">
+            <h2>Bitcoin (GBP)</h2>
+            <p>{prices.GBP.rate}</p>
           </div>
         </>
       )}
